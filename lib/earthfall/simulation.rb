@@ -8,8 +8,8 @@ class Simulation
 
 	DEPTH_OF_EARTHS_CORE = 6371.0 * 1000 # core of the earth
 
-	def initialize
-
+	def initialize(verbose: false)
+		@verbose = verbose
 	end
 
 	def run
@@ -24,7 +24,7 @@ class Simulation
 			depth += velocity * TIME_INCREMENT + gravity * TIME_INCREMENT**2 / 2
 			gravity = gravity_from_depth(depth)
 			velocity += gravity
-			puts "time: #{time} s, depth: #{depth.round(2)} m or #{(depth/1000).round(2)} km, velocity: #{velocity.round(2)} m/s or #{(velocity * 3.6).round(2)} km/h, gravity: #{gravity.round(2)} m/s^2"
+			puts stats(time, depth, velocity, gravity) if @verbose
 		end
 
 		# falling back up to the surface
@@ -38,6 +38,10 @@ private
 	def gravity_from_depth(depth)
 		@gravity_from_depth_calculator ||= GravityFromDepthCalculator.new
 		@gravity_from_depth_calculator.gravity(depth)
+	end
+
+	def stats(time, depth, velocity, gravity)
+		"time: #{time} s, depth: #{depth.round(2)} m or #{(depth/1000).round(2)} km, velocity: #{velocity.round(2)} m/s or #{(velocity * 3.6).round(2)} km/h, gravity: #{gravity.round(2)} m/s^2"
 	end
 end
 
