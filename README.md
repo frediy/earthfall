@@ -1,6 +1,6 @@
 # Earthfall
 
-A simple simulation for calculating how long it takes to fall through the earth.
+A simple simulation for calculating how long it to fall through the Earth, assuming zero friction.
 
 The simulation uses a linear interpolation of the PREM dataset:
 
