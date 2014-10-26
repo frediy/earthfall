@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Earthfall::VERSION
   spec.authors       = ["Fredrik Persen Fostvedt"]
   spec.email         = ["fpfostvedt@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Earth Falling Calculator}
+  spec.description   = %q{Calculates how long it would take to fall through the Earth using the PREM dataset.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "guard-rspec"
 
   spec.add_runtime_dependency "interpolate"
 end
